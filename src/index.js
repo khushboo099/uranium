@@ -14,6 +14,15 @@ mongoose.connect("mongodb+srv://Uranium-Batch:aruSjkdGdfhc9MRK@functionup.eel5r.
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
+app.use (
+    function (req, res, next) {
+        let date = new Date()
+        console.log(date + " " + req.ip + " " + req.url)
+        next()
+    }
+);
+  
+
 app.use('/', route);
 
 
